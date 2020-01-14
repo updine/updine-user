@@ -14,7 +14,18 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="9EZ-ed-IaE">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="729"/>
+                            </mapView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottomMargin" secondItem="9EZ-ed-IaE" secondAttribute="bottom" id="4GG-QI-8Dh"/>
+                            <constraint firstItem="9EZ-ed-IaE" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="5tz-SP-Aj0"/>
+                            <constraint firstItem="9EZ-ed-IaE" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="CgM-9m-UeR"/>
+                            <constraint firstAttribute="trailing" secondItem="9EZ-ed-IaE" secondAttribute="trailing" id="RYH-ej-JZB"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="Qjd-dG-fZv"/>

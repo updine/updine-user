@@ -1,0 +1,6 @@
+framework module Pods_updine_user {
+  umbrella header "Pods-updine-user-umbrella.h"
+
+  export *
+  module * { export * }
+}
