@@ -9,7 +9,7 @@
 import UIKit
 
 class DineViewController: UIViewController {
-
+    @IBOutlet weak var dinerTableView: UITableView!   
     override func viewDidLoad() {
         super.viewDidLoad()
         

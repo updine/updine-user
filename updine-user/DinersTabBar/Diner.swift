@@ -21,7 +21,7 @@ class Diner {
     }
 }
 
-//dummy varaibles
+//dummy varaibles change the vars based on diner class instance variables
 extension Diner {
     static let e1 = Diner(image: UIImage(named: "one") ?? UIImage(), date: "8", day: "Sat")
     static let e2 = Diner(image: UIImage(named: "two") ?? UIImage(), date: "11", day: "Tue")

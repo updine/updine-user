@@ -16,6 +16,7 @@
 		7C7220EF23CECF98000DDF1E /* DineDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7220EE23CECF98000DDF1E /* DineDetailsViewController.swift */; };
 		7C7220F223CEDC1C000DDF1E /* DineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7220F023CEDC1C000DDF1E /* DineViewController.swift */; };
 		7C7220F423CEDD2A000DDF1E /* Diner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7220F323CEDD2A000DDF1E /* Diner.swift */; };
+		7C7220F623CEE91D000DDF1E /* DinerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7220F523CEE91D000DDF1E /* DinerTableViewCell.swift */; };
 		F72FD44D05FBC1193B97543D /* Pods_updine_user.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6148F991BB3F5C1D8BF285B9 /* Pods_updine_user.framework */; };
 /* End PBXBuildFile section */
 
@@ -33,6 +34,7 @@
 		7C7220EE23CECF98000DDF1E /* DineDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DineDetailsViewController.swift; sourceTree = "<group>"; };
 		7C7220F123CEDC1C000DDF1E /* Base */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Base; path = Base.lproj/DineViewController.swift; sourceTree = "<group>"; };
 		7C7220F323CEDD2A000DDF1E /* Diner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Diner.swift; sourceTree = "<group>"; };
+		7C7220F523CEE91D000DDF1E /* DinerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DinerTableViewCell.swift; sourceTree = "<group>"; };
 		8F8247B17294AA4B2DDD1297 /* Pods-updine-user.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-updine-user.debug.xcconfig"; path = "Target Support Files/Pods-updine-user/Pods-updine-user.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -69,18 +71,35 @@
 		7C1A418923CB3817008B2865 /* updine-user */ = {
 			isa = PBXGroup;
 			children = (
-				7C1A419E23CD7BBE008B2865 /* MapViewController.swift */,
-				7C7220EE23CECF98000DDF1E /* DineDetailsViewController.swift */,
-				7C7220F023CEDC1C000DDF1E /* DineViewController.swift */,
+				7C7220F823CEEB38000DDF1E /* DinersTabBar */,
+				7C7220F723CEEABA000DDF1E /* MapsTabBar */,
 				7C1A418A23CB3817008B2865 /* AppDelegate.swift */,
 				7C1A418C23CB3817008B2865 /* SceneDelegate.swift */,
 				7C1A419023CB3817008B2865 /* Main.storyboard */,
 				7C1A419323CB3818008B2865 /* Assets.xcassets */,
 				7C1A419523CB3818008B2865 /* LaunchScreen.storyboard */,
 				7C1A419823CB3818008B2865 /* Info.plist */,
-				7C7220F323CEDD2A000DDF1E /* Diner.swift */,
 			);
 			path = "updine-user";
+			sourceTree = "<group>";
+		};
+		7C7220F723CEEABA000DDF1E /* MapsTabBar */ = {
+			isa = PBXGroup;
+			children = (
+				7C7220EE23CECF98000DDF1E /* DineDetailsViewController.swift */,
+				7C1A419E23CD7BBE008B2865 /* MapViewController.swift */,
+			);
+			path = MapsTabBar;
+			sourceTree = "<group>";
+		};
+		7C7220F823CEEB38000DDF1E /* DinersTabBar */ = {
+			isa = PBXGroup;
+			children = (
+				7C7220F023CEDC1C000DDF1E /* DineViewController.swift */,
+				7C7220F523CEE91D000DDF1E /* DinerTableViewCell.swift */,
+				7C7220F323CEDD2A000DDF1E /* Diner.swift */,
+			);
+			path = DinersTabBar;
 			sourceTree = "<group>";
 		};
 		8F7A9B7BED788200217D2994 /* Pods */ = {
@@ -202,6 +221,7 @@
 				7C1A419F23CD7BBE008B2865 /* MapViewController.swift in Sources */,
 				7C1A418D23CB3817008B2865 /* SceneDelegate.swift in Sources */,
 				7C7220F423CEDD2A000DDF1E /* Diner.swift in Sources */,
+				7C7220F623CEE91D000DDF1E /* DinerTableViewCell.swift in Sources */,
 				7C7220EF23CECF98000DDF1E /* DineDetailsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
