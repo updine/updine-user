@@ -14,7 +14,8 @@ class MapsViewController: UIViewController {
     @IBOutlet weak var mapView: MKMapView!
     
     let locationManager = CLLocationManager()
-    let regionInMeters: Double = 10000
+    let regionInMeters: Double = 300
+    var currentCoordinate: CLLocationCoordinate2D?
     
     
   override func viewDidLoad() {
@@ -68,15 +69,61 @@ class MapsViewController: UIViewController {
             print("fatal erroe unkown in case chk location")
         }
       }
+    
+     func zoomIn(_ coordinate: CLLocationCoordinate2D){
+         let zoomRegion = MKCoordinateRegion(center: coordinate, latitudinalMeters: regionInMeters, longitudinalMeters: regionInMeters)
+         mapView.setRegion(zoomRegion, animated: true)
+     }
+     
+     func addAnnotations(){
+         let timesSqaureAnnotation = MKPointAnnotation()
+         timesSqaureAnnotation.title = "9/11 Day of Service"
+         timesSqaureAnnotation.coordinate = CLLocationCoordinate2D(latitude: 40.6602, longitude: -73.9985)
+         
+         let empireStateAnnotation = MKPointAnnotation()
+         empireStateAnnotation.title = "Hurricane Dorian Clothing Drive"
+         empireStateAnnotation.coordinate = CLLocationCoordinate2D(latitude: 40.7484, longitude: -73.9857)
+         
+         let brooklynBridge = MKPointAnnotation()
+         brooklynBridge.title = "Food Pantry Delivery"
+         brooklynBridge.coordinate = CLLocationCoordinate2D(latitude: 40.7061, longitude: -73.9969)
+         
+         let prospectPark = MKPointAnnotation()
+         prospectPark.title = "Feed The Homeless Soup Kitchen"
+         prospectPark.coordinate = CLLocationCoordinate2D(latitude: 40.6602, longitude: -73.9690)
+         
+         let jersey = MKPointAnnotation()
+         jersey.title = "It's My Park"
+         jersey.coordinate = CLLocationCoordinate2D(latitude: 40.7178, longitude: -74.0431)
+         
+         mapView.addAnnotation(timesSqaureAnnotation)
+         mapView.addAnnotation(empireStateAnnotation)
+         mapView.addAnnotation(brooklynBridge)
+         mapView.addAnnotation(prospectPark)
+         mapView.addAnnotation(jersey)
+     }
   }
 
 
   extension MapsViewController: CLLocationManagerDelegate {
       
       func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-          guard let location = locations.last else { return }
-          let region = MKCoordinateRegion.init(center: location.coordinate, latitudinalMeters: regionInMeters, longitudinalMeters: regionInMeters)
+        
+            //Dif between last and first? ...locations.first / .last chk array in given input
+          guard let latestLocation = locations.first else { return }
+        
+            //to make user location in center of mapview chnage the center coord
+           let span = MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
+                 let region = MKCoordinateRegion(center: latestLocation.coordinate, span: span)
+        
           mapView.setRegion(region, animated: true)
+        
+          if currentCoordinate == nil{
+              zoomIn(latestLocation.coordinate)
+              addAnnotations()
+          }
+          
+          currentCoordinate = latestLocation.coordinate
       }
       
       
@@ -99,6 +146,8 @@ class MapsViewController: UIViewController {
         locationManager.startMonitoring(for: geoFenceRegion)
     
      */
+    
+    
   }
 
 
