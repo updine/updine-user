@@ -6,6 +6,12 @@
 //  Copyright © 2020 Yasin Ehsan. All rights reserved.
 //
 
+
+/* NOTES
+ - disables set region thers 2 both same
+ - have to locate the span location hit is it auto the blue heatwaves maybe
+ */
+
 import UIKit
 import MapKit
 
@@ -31,10 +37,10 @@ class MapsViewController: UIViewController {
       
       
       func centerViewOnUserLocation() {
-          if let location = locationManager.location?.coordinate {
-              let region = MKCoordinateRegion.init(center: location, latitudinalMeters: regionInMeters, longitudinalMeters: regionInMeters)
-              mapView.setRegion(region, animated: true)
-          }
+//          if let location = locationManager.location?.coordinate {
+//              let region = MKCoordinateRegion.init(center: location, latitudinalMeters: regionInMeters, longitudinalMeters: regionInMeters)
+//              mapView.setRegion(region, animated: true)
+//          }
       }
       
       
@@ -142,10 +148,11 @@ class MapsViewController: UIViewController {
         
             //to make user location in center of mapview chnage the center coord
             //is there a cicumference for the span what user views
+            //below span is the exact same as the setreigon above span is like pertange of lat long instead of 10k meters
            let span = MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
                  let region = MKCoordinateRegion(center: latestLocation.coordinate, span: span)
         
-          mapView.setRegion(region, animated: true)
+//          mapView.setRegion(region, animated: true)
         
           //invoke once at launch (most likely)
           if currentCoordinate == nil{
@@ -180,6 +187,7 @@ class MapsViewController: UIViewController {
   }
 
 extension MapsViewController: MKMapViewDelegate {
+    
     //add pin hover over diner
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         if annotation is MKUserLocation {
@@ -197,6 +205,7 @@ extension MapsViewController: MKMapViewDelegate {
     //segue to details vc
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
 //        showRoute() for destination gps
+         let annView = view.annotation
        
        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
        guard let detailVC = storyboard.instantiateViewController(withIdentifier: "DineDetailsViewController") as? DineDetailsViewController else {

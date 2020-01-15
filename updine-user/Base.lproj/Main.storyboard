@@ -7,7 +7,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Item-->
+        <!--Maps View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="MapsViewController" customModule="updine_user" customModuleProvider="target" sceneMemberID="viewController">
@@ -28,21 +28,22 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="Qjd-dG-fZv"/>
+                    <navigationItem key="navigationItem" id="Rku-am-f7g"/>
                     <connections>
                         <outlet property="mapView" destination="9EZ-ed-IaE" id="rkG-cy-BHx"/>
+                        <segue destination="67p-3w-eWt" kind="modal" id="LCj-aW-rxh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1165.5999999999999" y="-751.47783251231533"/>
+            <point key="canvasLocation" x="2108" y="-751.47783251231533"/>
         </scene>
         <!--Dine Details View Controller-->
         <scene sceneID="dX6-5U-Hjc">
             <objects>
                 <viewController storyboardIdentifier="DineDetailsViewController" id="67p-3w-eWt" customClass="DineDetailsViewController" customModule="updine_user" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="V8Y-Kd-DDK">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="758"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7Uh-ko-Ton">
@@ -71,7 +72,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZV3-ja-q7Y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2375" y="-751"/>
+            <point key="canvasLocation" x="3084" y="-751.47783251231533"/>
         </scene>
         <!--Item-->
         <scene sceneID="Jxk-dD-jDm">
@@ -142,7 +143,7 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="l36-lS-0fz"/>
+                        <segue destination="bwd-31-rfq" kind="relationship" relationship="viewControllers" id="l36-lS-0fz"/>
                         <segue destination="ezp-JT-SHc" kind="relationship" relationship="viewControllers" id="dDL-d0-9Vc"/>
                         <segue destination="r1q-Fv-qLa" kind="relationship" relationship="viewControllers" id="3Qr-Hc-DKH"/>
                         <segue destination="L2e-OJ-Wtb" kind="relationship" relationship="viewControllers" id="a36-UW-Bbl"/>
@@ -167,6 +168,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="59k-iz-Bh6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1166" y="752"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="MJy-24-dDt">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="bwd-31-rfq" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="Qjd-dG-fZv"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="9to-uY-sDW">
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="7D2-0o-dK5"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DwT-CR-EWf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1165.5999999999999" y="-751.47783251231533"/>
         </scene>
     </scenes>
 </document>
