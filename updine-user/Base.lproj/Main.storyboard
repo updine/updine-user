@@ -60,6 +60,9 @@
                                 <rect key="frame" x="131" y="455" width="112" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Calender Button"/>
+                                <connections>
+                                    <action selector="calenderButtonTapped:" destination="67p-3w-eWt" eventType="touchUpInside" id="k50-6y-wJa"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
