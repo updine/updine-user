@@ -83,6 +83,22 @@ class MapsViewController: UIViewController {
       func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
           checkLocationAuthorization()
       }
+    
+    //GEOFENCES
+    func locationManager(_ manager: CLLocationManager, didEnterRegion region: CLRegion) {
+    print("entrer")
+    }
+     
+    func locationManager(_ manager: CLLocationManager, didExitRegion region: CLRegion) {
+    print("left")
+    }
+    
+    /**Some where above
+        let geoFenceRegion: CLCircularRegion = CLCircularRegion(center: CLLocationCoordinate2DMake(43.61871, -116.214607), radius: 100, identifier: "boise")
+         
+        locationManager.startMonitoring(for: geoFenceRegion)
+    
+     */
   }
 
 
