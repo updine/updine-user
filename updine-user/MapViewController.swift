@@ -47,7 +47,7 @@ class MapsViewController: UIViewController {
           }
       }
       
-      
+      //best practices for location permishh settings
       func checkLocationAuthorization() {
           switch CLLocationManager.authorizationStatus() {
           case .authorizedWhenInUse:
@@ -69,12 +69,8 @@ class MapsViewController: UIViewController {
             print("fatal erroe unkown in case chk location")
         }
       }
-    
-     func zoomIn(_ coordinate: CLLocationCoordinate2D){
-         let zoomRegion = MKCoordinateRegion(center: coordinate, latitudinalMeters: regionInMeters, longitudinalMeters: regionInMeters)
-         mapView.setRegion(zoomRegion, animated: true)
-     }
      
+    //JSON DATA of DIner lat long magic here
      func addAnnotations(){
          let timesSqaureAnnotation = MKPointAnnotation()
          timesSqaureAnnotation.title = "9/11 Day of Service"
@@ -102,6 +98,38 @@ class MapsViewController: UIViewController {
          mapView.addAnnotation(prospectPark)
          mapView.addAnnotation(jersey)
      }
+    
+    //GPS ROUTE
+    func showRoute() {
+           let sourceLocation = currentCoordinate ?? CLLocationCoordinate2D(latitude: 40.6742, longitude: -73.8418)
+           let destinationLocation = CLLocationCoordinate2D(latitude: 40.7484, longitude: -73.9857)
+           
+           let sourcePlaceMark = MKPlacemark(coordinate: sourceLocation)
+           let destinationPlaceMark = MKPlacemark(coordinate: destinationLocation)
+           
+           let directionRequest = MKDirections.Request()
+           directionRequest.source = MKMapItem(placemark: sourcePlaceMark)
+           directionRequest.destination = MKMapItem(placemark: destinationPlaceMark)
+           directionRequest.transportType = .automobile
+           
+           let directions = MKDirections(request: directionRequest)
+           directions.calculate {(response, error) in
+               guard let directionResponse = response else {
+                   if let error = error{
+                       print("There was an error getting directions==\(error.localizedDescription)")
+                   }
+                   return
+               }
+               let route = directionResponse.routes[0]
+               self.mapView.addOverlay(route.polyline, level: .aboveRoads)
+               
+               let rect = route.polyline.boundingMapRect
+                //below not being called set Region two more
+               self.mapView.setRegion(MKCoordinateRegion(rect), animated: true)
+           }
+           
+           self.mapView.delegate = self
+       }
   }
 
 
@@ -113,20 +141,22 @@ class MapsViewController: UIViewController {
           guard let latestLocation = locations.first else { return }
         
             //to make user location in center of mapview chnage the center coord
+            //is there a cicumference for the span what user views
            let span = MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
                  let region = MKCoordinateRegion(center: latestLocation.coordinate, span: span)
         
           mapView.setRegion(region, animated: true)
         
+          //invoke once at launch (most likely)
           if currentCoordinate == nil{
-              zoomIn(latestLocation.coordinate)
+              centerViewOnUserLocation()
               addAnnotations()
           }
           
           currentCoordinate = latestLocation.coordinate
       }
       
-      
+      //best practices to check and catch exceptions for location permisshh
       func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
           checkLocationAuthorization()
       }
@@ -147,8 +177,46 @@ class MapsViewController: UIViewController {
     
      */
     
-    
   }
+
+extension MapsViewController: MKMapViewDelegate {
+    //add pin hover over diner
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        if annotation is MKUserLocation {
+            return nil
+        }
+        else{
+            let pin = MKPinAnnotationView(annotation: annotation, reuseIdentifier: "pin")
+            
+            pin.canShowCallout = true
+            pin.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
+            return pin
+        }
+    }
+    
+    //segue to details vc
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+//        showRoute() for destination gps
+       
+       let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+       guard let detailVC = storyboard.instantiateViewController(withIdentifier: "DineDetailsViewController") as? DineDetailsViewController else {
+           print("detals vc not founds")
+           return
+       }
+       
+       
+       
+       self.navigationController?.pushViewController(detailVC, animated: true)
+    }
+    
+    //color overlay over the geofences
+    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+         let renderer = MKPolylineRenderer(overlay: overlay)
+               renderer.strokeColor = UIColor.green
+               renderer.lineWidth = 4.0
+               return renderer
+    }
+}
 
 
 
