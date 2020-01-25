@@ -17,6 +17,7 @@ class DineDetailsViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    //RSVP SONN
     @IBAction func calenderButtonTapped(_ sender: Any) {
         
         let eventStore:EKEventStore = EKEventStore()
