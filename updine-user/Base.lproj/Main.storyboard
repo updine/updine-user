@@ -16,7 +16,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="9EZ-ed-IaE">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="729"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="778"/>
                             </mapView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -29,10 +29,6 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="Rku-am-f7g"/>
-                    <connections>
-                        <outlet property="mapView" destination="9EZ-ed-IaE" id="rkG-cy-BHx"/>
-                        <segue destination="67p-3w-eWt" kind="modal" id="LCj-aW-rxh"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -43,7 +39,7 @@
             <objects>
                 <viewController storyboardIdentifier="DineDetailsViewController" id="67p-3w-eWt" customClass="DineDetailsViewController" customModule="updine_user" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="V8Y-Kd-DDK">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="758"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7Uh-ko-Ton">
@@ -61,9 +57,6 @@
                                 <rect key="frame" x="131" y="455" width="112" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Calender Button"/>
-                                <connections>
-                                    <action selector="calenderButtonTapped:" destination="67p-3w-eWt" eventType="touchUpInside" id="k50-6y-wJa"/>
-                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -161,7 +154,6 @@
                     </tabBar>
                     <connections>
                         <segue destination="bwd-31-rfq" kind="relationship" relationship="viewControllers" id="l36-lS-0fz"/>
-                        <segue destination="ezp-JT-SHc" kind="relationship" relationship="viewControllers" id="dDL-d0-9Vc"/>
                         <segue destination="r1q-Fv-qLa" kind="relationship" relationship="viewControllers" id="3Qr-Hc-DKH"/>
                         <segue destination="L2e-OJ-Wtb" kind="relationship" relationship="viewControllers" id="a36-UW-Bbl"/>
                     </connections>
@@ -197,9 +189,6 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="7D2-0o-dK5"/>
-                    </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DwT-CR-EWf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
