@@ -4,6 +4,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -54,10 +55,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="oN9-28-qPb">
-                                <rect key="frame" x="0.0" y="120" width="375" height="658"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EOj-7q-qwz">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="120"/>
                                 <subviews>
@@ -75,21 +72,58 @@
                                     <constraint firstAttribute="bottom" secondItem="oPS-Yh-xZl" secondAttribute="bottom" id="zsm-rr-IzL"/>
                                 </constraints>
                             </view>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="6na-DC-nJa">
+                                <rect key="frame" x="0.0" y="118" width="375" height="279"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBrownColor" red="0.63529411759999999" green="0.51764705879999995" blue="0.36862745099999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Ecu-KK-GU7">
+                                    <size key="itemSize" width="176" height="171"/>
+                                    <size key="estimatedItemSize" width="150" height="144"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cellOne" id="qEh-0x-koF" customClass="OneCollectionViewCell" customModule="updine_user" customModuleProvider="target">
+                                        <rect key="frame" x="10" y="54" width="176" height="171"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="5CN-bz-j6D">
+                                            <rect key="frame" x="0.0" y="0.0" width="176" height="171"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="szu-NF-qJZ">
+                                                    <rect key="frame" x="58" y="24" width="42" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZGc-T6-XM9">
+                                                    <rect key="frame" x="22" y="53" width="132" height="86"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                            </subviews>
+                                            <color key="backgroundColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </collectionViewCellContentView>
+                                        <size key="customSize" width="176" height="171"/>
+                                        <connections>
+                                            <outlet property="cellLabel" destination="szu-NF-qJZ" id="yb3-l9-QNT"/>
+                                            <outlet property="imageView" destination="ZGc-T6-XM9" id="D9s-DD-wXC"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="EOj-7q-qwz" firstAttribute="top" secondItem="EMr-UP-Aky" secondAttribute="top" id="1zO-Ed-Huk"/>
                             <constraint firstItem="EOj-7q-qwz" firstAttribute="trailing" secondItem="2hj-g9-JUK" secondAttribute="trailing" id="IQF-6W-Jh3"/>
-                            <constraint firstItem="oN9-28-qPb" firstAttribute="bottom" secondItem="2hj-g9-JUK" secondAttribute="bottom" id="JbZ-AJ-JSO"/>
-                            <constraint firstItem="oN9-28-qPb" firstAttribute="trailing" secondItem="2hj-g9-JUK" secondAttribute="trailing" id="K4D-uZ-y9s"/>
-                            <constraint firstItem="oN9-28-qPb" firstAttribute="top" secondItem="EOj-7q-qwz" secondAttribute="bottom" id="Nse-At-ju0"/>
-                            <constraint firstItem="oN9-28-qPb" firstAttribute="leading" secondItem="2hj-g9-JUK" secondAttribute="leading" id="Sus-WA-rpN"/>
-                            <constraint firstItem="oN9-28-qPb" firstAttribute="top" secondItem="EOj-7q-qwz" secondAttribute="bottom" id="cPE-8k-NxU"/>
                             <constraint firstItem="EOj-7q-qwz" firstAttribute="leading" secondItem="2hj-g9-JUK" secondAttribute="leading" id="zgS-lD-aTw"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="2hj-g9-JUK"/>
                     </view>
                     <connections>
+                        <outlet property="collectionViewOne" destination="6na-DC-nJa" id="5VS-6F-KzS"/>
                         <outlet property="navBarView" destination="oPS-Yh-xZl" id="ULX-66-uok"/>
                     </connections>
                 </viewController>

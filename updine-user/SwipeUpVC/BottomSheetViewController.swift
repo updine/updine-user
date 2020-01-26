@@ -11,6 +11,9 @@ import UIKit
 class BottomSheetViewController: UIViewController, UIGestureRecognizerDelegate {
     
     @IBOutlet weak var navBarView: UIView!
+    @IBOutlet weak var collectionViewOne: UICollectionView!
+    
+        var dataSource1: [String] = ["yas", "tas", "yas", "tas", "yas", "tas", "yas", "tas"]
     
         let closeThresholdHeight: CGFloat = 100
         let openThreshold: CGFloat = UIScreen.main.bounds.height - 200
@@ -23,6 +26,8 @@ class BottomSheetViewController: UIViewController, UIGestureRecognizerDelegate {
         override func viewDidLoad() {
             gotPanned(0)
             super.viewDidLoad()
+            collectionViewOne.dataSource = self
+            
 
             let gestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(respondToPanGesture))
             view.addGestureRecognizer(gestureRecognizer)
@@ -95,4 +100,36 @@ class BottomSheetViewController: UIViewController, UIGestureRecognizerDelegate {
             let name = NSNotification.Name(rawValue: "BottomViewMoved")
             NotificationCenter.default.post(name: name, object: nil, userInfo: ["percentage": percentage])
         }
+}
+
+extension BottomSheetViewController: UICollectionViewDataSource, UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 1;
+    }
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return dataSource1.count
+    }
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellOne", for: indexPath) as! OneCollectionViewCell
+        cell.setLabel(dataSource1[indexPath.row])
+        return cell
+        
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print("whose mans")
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
+        UIView.animate(withDuration: 0.5) {
+            if let cell = collectionView.cellForItem(at: indexPath) as? OneCollectionViewCell {
+                cell.imageView.transform = .init(scaleX: 0.95, y: 0.95)
+                cell.contentView.backgroundColor = UIColor(red: 0.95, green: 0.95, blue: 0.95, alpha: 1)
+            }
+        }
+    }
+    
+    
 }
