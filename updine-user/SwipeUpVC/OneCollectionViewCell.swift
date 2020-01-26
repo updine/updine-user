@@ -16,6 +16,11 @@ class OneCollectionViewCell: UICollectionViewCell {
         cellLabel.text = given
     }
     
+    func setFoodSpot(diner: FoodSpot) {
+        imageView.image = diner.image
+    }
+    
+    
     
     
 }

@@ -137,8 +137,16 @@
                                     <constraint firstAttribute="bottom" secondItem="oPS-Yh-xZl" secondAttribute="bottom" id="zsm-rr-IzL"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nnk-Jg-EGb">
+                                <rect key="frame" x="164" y="658" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <segue destination="e5H-lm-11C" kind="presentation" modalPresentationStyle="fullScreen" id="3sV-9p-YOd"/>
+                                </connections>
+                            </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="6na-DC-nJa">
-                                <rect key="frame" x="0.0" y="118" width="375" height="279"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="279"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBrownColor" red="0.63529411759999999" green="0.51764705879999995" blue="0.36862745099999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Ecu-KK-GU7">
@@ -178,14 +186,6 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nnk-Jg-EGb">
-                                <rect key="frame" x="164" y="658" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <segue destination="e5H-lm-11C" kind="presentation" modalPresentationStyle="fullScreen" id="3sV-9p-YOd"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -404,7 +404,6 @@
         <image name="wolrd" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="jdf-48-CXL"/>
         <segue reference="3sV-9p-YOd"/>
     </inferredMetricsTieBreakers>
 </document>
