@@ -70,19 +70,22 @@ class HomeViewController: UIViewController {
     
     //JSON DATA of DIner lat long magic here
     func addAnnotations(){
-        let timesSqaureAnnotation = MKPointAnnotation()
-        timesSqaureAnnotation.title = markerTitle
-        timesSqaureAnnotation.coordinate = CLLocationCoordinate2D(latitude: 40.6602, longitude: -73.9985)
+        let pinOne = MKPointAnnotation()
+        pinOne.title = markerTitle
+        pinOne.coordinate = CLLocationCoordinate2D(latitude: 40.692040, longitude: -73.987590)
         
         
-        let empireStateAnnotation = MKPointAnnotation()
-        empireStateAnnotation.title = markerTitle
-        empireStateAnnotation.coordinate = CLLocationCoordinate2D(latitude: 40.7484, longitude: -73.9857)
+        let pinTwo = MKPointAnnotation()
+        pinTwo.title = markerTitle
+        pinTwo.coordinate = CLLocationCoordinate2D(latitude: 40.7484, longitude: -73.9857)
         
         
         
-        mapView.addAnnotation(timesSqaureAnnotation)
-        mapView.addAnnotation(empireStateAnnotation)
+        mapView.addAnnotation(pinOne)
+        mapView.addAnnotation(pinTwo)
+        
+//        mapView.selectAnnotation(pinOne, animated: true)
+//        mapView.selectAnnotation(pinTwo, animated: true)
     }
     
     //GPS ROUTE
@@ -119,11 +122,8 @@ class HomeViewController: UIViewController {
     
     func flyKitSetup() {
 //        self.mapView.mapType = .hybridFlyover
-//        self.mapView.showsBuildings = true
-//        self.mapView.isZoomEnabled = true
-//        self.mapView.isScrollEnabled = true
         
-        let camera = FlyoverCamera(mapView: self.mapView, configuration: FlyoverCamera.Configuration(duration: 10.0, altitude: 60000, pitch: 45.0, headingStep: 40.0))
+        let camera = FlyoverCamera(mapView: self.mapView, configuration: FlyoverCamera.Configuration(duration: 10.0, altitude: 10000, pitch: 45.0, headingStep: 40.0))
         camera.start(flyover: FlyoverAwesomePlace.newYork)
         DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(20), execute:{
             camera.stop()
@@ -231,6 +231,8 @@ extension HomeViewController: CLLocationManagerDelegate {
 
 extension HomeViewController: MKMapViewDelegate {
     
+   
+    
     //add pin hover over diner
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         
@@ -242,6 +244,7 @@ extension HomeViewController: MKMapViewDelegate {
             let pin = MKPinAnnotationView(annotation: annotation, reuseIdentifier: "pin")
             
             pin.canShowCallout = true
+            
             pin.image = UIImage(named: "marker")
             
             
