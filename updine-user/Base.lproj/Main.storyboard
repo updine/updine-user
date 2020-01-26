@@ -240,7 +240,7 @@
         <!--View Controller-->
         <scene sceneID="zRj-xk-ZYS">
             <objects>
-                <viewController id="1kI-Vs-T2p" sceneMemberID="viewController">
+                <viewController id="1kI-Vs-T2p" customClass="RSVPViewController" customModule="updine_user" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="s46-sn-3pA">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -254,6 +254,13 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
                                     <segue destination="e5H-lm-11C" kind="presentation" modalPresentationStyle="fullScreen" id="uy9-jF-1R4"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rDr-tB-Qya">
+                                <rect key="frame" x="16" y="693" width="343" height="68"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="rsvpButtonTapped:" destination="1kI-Vs-T2p" eventType="touchUpInside" id="aEp-ra-KVj"/>
                                 </connections>
                             </button>
                         </subviews>
