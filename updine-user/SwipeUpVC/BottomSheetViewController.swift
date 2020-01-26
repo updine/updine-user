@@ -13,6 +13,8 @@ class BottomSheetViewController: UIViewController, UIGestureRecognizerDelegate {
     @IBOutlet weak var navBarView: UIView!
     @IBOutlet weak var collectionViewOne: UICollectionView!
     
+    @IBOutlet weak var screenImageView: UIImageView!
+    
         var dataSource1: [String] = ["yas", "tas", "yas", "tas", "yas", "tas", "yas", "tas"]
     
         let closeThresholdHeight: CGFloat = 100
@@ -27,6 +29,7 @@ class BottomSheetViewController: UIViewController, UIGestureRecognizerDelegate {
             gotPanned(0)
             super.viewDidLoad()
             collectionViewOne.dataSource = self
+            screenImageView.image = UIImage(named: ("swipeUpHalf"))
             
 
             let gestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(respondToPanGesture))

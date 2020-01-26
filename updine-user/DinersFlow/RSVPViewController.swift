@@ -1,15 +1,15 @@
 //
-//  DineDetailsViewController.swift
+//  RSVPViewController.swift
 //  updine-user
 //
-//  Created by Yasin Ehsan on 1/15/20.
+//  Created by Yasin Ehsan on 1/26/20.
 //  Copyright © 2020 Yasin Ehsan. All rights reserved.
 //
 
 import UIKit
 import EventKit
 
-class DineDetailsViewController: UIViewController {
+class RSVPViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,9 +17,7 @@ class DineDetailsViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    //RSVP SONN
-    @IBAction func calenderButtonTapped(_ sender: Any) {
-        
+    @IBAction func rsvpButtonTapped(_ sender: Any) {
         let eventStore:EKEventStore = EKEventStore()
         
         eventStore.requestAccess(to: .event) {(granted, error) in
@@ -29,7 +27,7 @@ class DineDetailsViewController: UIViewController {
                 print("error \(error)")
                 
                 let event:EKEvent = EKEvent(eventStore: eventStore)
-                event.title = "Hurricane Dorian Clothing Drive"
+                event.title = "RSVP Night Out"
                 event.startDate = Date()
                 event.endDate = Date()
                 event.notes = ""
@@ -47,6 +45,14 @@ class DineDetailsViewController: UIViewController {
         }
     }
     
-   
+    /*
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
+    }
+    */
 
 }
