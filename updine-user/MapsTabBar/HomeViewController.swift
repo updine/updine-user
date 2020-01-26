@@ -17,8 +17,10 @@ class HomeViewController: UIViewController {
     
     @IBOutlet weak var mapView: MKMapView!
     let locationManager = CLLocationManager()
-    let regionInMeters: Double = 3000
+    let regionInMeters: Double = 30000
     var currentCoordinate: CLLocationCoordinate2D?
+    
+    let markerTitle: String = "Get Directions"
     
     
      func centerViewOnUserLocation() {
@@ -68,31 +70,51 @@ class HomeViewController: UIViewController {
     //JSON DATA of DIner lat long magic here
     func addAnnotations(){
         let timesSqaureAnnotation = MKPointAnnotation()
-        timesSqaureAnnotation.title = "9/11 Day of Service"
+        timesSqaureAnnotation.title = markerTitle
         timesSqaureAnnotation.coordinate = CLLocationCoordinate2D(latitude: 40.6602, longitude: -73.9985)
         
+        
         let empireStateAnnotation = MKPointAnnotation()
-        empireStateAnnotation.title = "Hurricane Dorian Clothing Drive"
+        empireStateAnnotation.title = markerTitle
         empireStateAnnotation.coordinate = CLLocationCoordinate2D(latitude: 40.7484, longitude: -73.9857)
         
-        let brooklynBridge = MKPointAnnotation()
-        brooklynBridge.title = "Food Pantry Delivery"
-        brooklynBridge.coordinate = CLLocationCoordinate2D(latitude: 40.7061, longitude: -73.9969)
         
-        let prospectPark = MKPointAnnotation()
-        prospectPark.title = "Feed The Homeless Soup Kitchen"
-        prospectPark.coordinate = CLLocationCoordinate2D(latitude: 40.6602, longitude: -73.9690)
-        
-        let jersey = MKPointAnnotation()
-        jersey.title = "It's My Park"
-        jersey.coordinate = CLLocationCoordinate2D(latitude: 40.7178, longitude: -74.0431)
         
         mapView.addAnnotation(timesSqaureAnnotation)
         mapView.addAnnotation(empireStateAnnotation)
-        mapView.addAnnotation(brooklynBridge)
-        mapView.addAnnotation(prospectPark)
-        mapView.addAnnotation(jersey)
     }
+    
+    //GPS ROUTE
+    func showRoute() {
+           let sourceLocation = currentCoordinate ?? CLLocationCoordinate2D(latitude: 40.6742, longitude: -73.8418)
+           let destinationLocation = CLLocationCoordinate2D(latitude: 40.7484, longitude: -73.9857)
+           
+           let sourcePlaceMark = MKPlacemark(coordinate: sourceLocation)
+           let destinationPlaceMark = MKPlacemark(coordinate: destinationLocation)
+           
+           let directionRequest = MKDirections.Request()
+           directionRequest.source = MKMapItem(placemark: sourcePlaceMark)
+           directionRequest.destination = MKMapItem(placemark: destinationPlaceMark)
+           directionRequest.transportType = .automobile
+           
+           let directions = MKDirections(request: directionRequest)
+           directions.calculate {(response, error) in
+               guard let directionResponse = response else {
+                   if let error = error{
+                       print("There was an error getting directions==\(error.localizedDescription)")
+                   }
+                   return
+               }
+               let route = directionResponse.routes[0]
+               self.mapView.addOverlay(route.polyline, level: .aboveRoads)
+               
+               let rect = route.polyline.boundingMapRect
+                //below not being called set Region two more
+               self.mapView.setRegion(MKCoordinateRegion(rect), animated: true)
+           }
+           
+           self.mapView.delegate = self
+       }
     
     
     
@@ -136,6 +158,7 @@ class HomeViewController: UIViewController {
            super.viewDidLoad()
            createBottomView()
             checkLocationServices()
+            mapView.delegate = self
 
            let name = NSNotification.Name(rawValue: "BottomViewMoved")
            NotificationCenter.default.addObserver(forName: name, object: nil, queue: nil, using: receiveNotification(_:))
@@ -195,13 +218,19 @@ extension HomeViewController: MKMapViewDelegate {
     
     //add pin hover over diner
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        
         if annotation is MKUserLocation {
+            //we dont want to do anything because of this is the blue dot we want only custom pins
             return nil
         }
         else{
             let pin = MKPinAnnotationView(annotation: annotation, reuseIdentifier: "pin")
             
             pin.canShowCallout = true
+            pin.image = UIImage(named: "marker")
+            
+            
+            //the button when tapped goto gps
             pin.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
             return pin
         }
@@ -209,18 +238,18 @@ extension HomeViewController: MKMapViewDelegate {
     
     //segue to details vc
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
-//        showRoute() for destination gps
-         let annView = view.annotation
-       
-       let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-       guard let detailVC = storyboard.instantiateViewController(withIdentifier: "DineDetailsViewController") as? DineDetailsViewController else {
-           print("detals vc not founds")
-           return
-       }
-       
-       
-       
-       self.navigationController?.pushViewController(detailVC, animated: true)
+        showRoute() //for destination gps
+//         let annView = view.annotation
+//
+//       let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+//       guard let detailVC = storyboard.instantiateViewController(withIdentifier: "DineDetailsViewController") as? DineDetailsViewController else {
+//           print("detals vc not founds")
+//           return
+//       }
+//
+//
+//
+//       self.navigationController?.pushViewController(detailVC, animated: true)
     }
     
     //color overlay over the geofences
