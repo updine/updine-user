@@ -29,7 +29,7 @@ class BottomSheetViewController: UIViewController, UIGestureRecognizerDelegate {
             gotPanned(0)
             super.viewDidLoad()
             collectionViewOne.dataSource = self
-            screenImageView.image = UIImage(named: ("swipeUpHalf"))
+//            screenImageView.image = UIImage(named: ("swipeUpHalf"))
             
 
             let gestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(respondToPanGesture))
