@@ -14,7 +14,6 @@
 		7C1A419723CB3818008B2865 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C1A419523CB3818008B2865 /* LaunchScreen.storyboard */; };
 		7C1A419F23CD7BBE008B2865 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1A419E23CD7BBE008B2865 /* MapViewController.swift */; };
 		7C7220EF23CECF98000DDF1E /* DineDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7220EE23CECF98000DDF1E /* DineDetailsViewController.swift */; };
-		7C7220F223CEDC1C000DDF1E /* DineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7220F023CEDC1C000DDF1E /* DineViewController.swift */; };
 		7C7220F423CEDD2A000DDF1E /* Diner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7220F323CEDD2A000DDF1E /* Diner.swift */; };
 		7C7220F623CEE91D000DDF1E /* DinerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7220F523CEE91D000DDF1E /* DinerTableViewCell.swift */; };
 		7CD155E423DCB076002775A9 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD155E323DCB076002775A9 /* HomeViewController.swift */; };
@@ -36,7 +35,6 @@
 		7C1A419823CB3818008B2865 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7C1A419E23CD7BBE008B2865 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		7C7220EE23CECF98000DDF1E /* DineDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DineDetailsViewController.swift; sourceTree = "<group>"; };
-		7C7220F123CEDC1C000DDF1E /* Base */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Base; path = Base.lproj/DineViewController.swift; sourceTree = "<group>"; };
 		7C7220F323CEDD2A000DDF1E /* Diner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Diner.swift; sourceTree = "<group>"; };
 		7C7220F523CEE91D000DDF1E /* DinerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DinerTableViewCell.swift; sourceTree = "<group>"; };
 		7CD155E323DCB076002775A9 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -79,7 +77,7 @@
 		7C1A418923CB3817008B2865 /* updine-user */ = {
 			isa = PBXGroup;
 			children = (
-				7C7220F823CEEB38000DDF1E /* DinersTabBar */,
+				7C7220F823CEEB38000DDF1E /* DinersFlow */,
 				7CD155EA23DD8ABB002775A9 /* Kickoff_VC */,
 				7CD155E723DCB545002775A9 /* SwipeUpVC */,
 				7C7220F723CEEABA000DDF1E /* MapsTabBar */,
@@ -96,21 +94,20 @@
 		7C7220F723CEEABA000DDF1E /* MapsTabBar */ = {
 			isa = PBXGroup;
 			children = (
-				7C7220EE23CECF98000DDF1E /* DineDetailsViewController.swift */,
 				7C1A419E23CD7BBE008B2865 /* MapViewController.swift */,
 				7CD155E323DCB076002775A9 /* HomeViewController.swift */,
 			);
 			path = MapsTabBar;
 			sourceTree = "<group>";
 		};
-		7C7220F823CEEB38000DDF1E /* DinersTabBar */ = {
+		7C7220F823CEEB38000DDF1E /* DinersFlow */ = {
 			isa = PBXGroup;
 			children = (
-				7C7220F023CEDC1C000DDF1E /* DineViewController.swift */,
+				7C7220EE23CECF98000DDF1E /* DineDetailsViewController.swift */,
 				7C7220F523CEE91D000DDF1E /* DinerTableViewCell.swift */,
 				7C7220F323CEDD2A000DDF1E /* Diner.swift */,
 			);
-			path = DinersTabBar;
+			path = DinersFlow;
 			sourceTree = "<group>";
 		};
 		7CD155E723DCB545002775A9 /* SwipeUpVC */ = {
@@ -246,7 +243,6 @@
 			files = (
 				7C1A418B23CB3817008B2865 /* AppDelegate.swift in Sources */,
 				7CD155E623DCB09D002775A9 /* BottomSheetViewController.swift in Sources */,
-				7C7220F223CEDC1C000DDF1E /* DineViewController.swift in Sources */,
 				7C1A419F23CD7BBE008B2865 /* MapViewController.swift in Sources */,
 				7C1A418D23CB3817008B2865 /* SceneDelegate.swift in Sources */,
 				7C7220F423CEDD2A000DDF1E /* Diner.swift in Sources */,
@@ -275,14 +271,6 @@
 				7C1A419623CB3818008B2865 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-		7C7220F023CEDC1C000DDF1E /* DineViewController.swift */ = {
-			isa = PBXVariantGroup;
-			children = (
-				7C7220F123CEDC1C000DDF1E /* Base */,
-			);
-			name = DineViewController.swift;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

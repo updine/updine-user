@@ -10,7 +10,8 @@ import UIKit
 import EventKit
 
 class DineDetailsViewController: UIViewController {
-
+    @IBOutlet weak var screenImageView: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
