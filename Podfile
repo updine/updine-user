@@ -6,5 +6,8 @@ target 'updine-user' do
   use_frameworks!
 
   # Pods for updine-user
+	pod 'AlamofireImage'
+	pod 'Alamofire'
+	pod 'FlyoverKit', '~> 1.2.0'
 
 end

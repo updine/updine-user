@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Item-->
+        <!--Home View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="HomeViewController" customModule="updine_user" customModuleProvider="target" sceneMemberID="viewController">
@@ -16,7 +16,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="G8B-3k-SH6">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsScale="YES" translatesAutoresizingMaskIntoConstraints="NO" id="G8B-3k-SH6">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                             </mapView>
                             <view userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BHa-6U-joA">
@@ -38,16 +38,21 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="LCh-0s-2Uf"/>
+                    <tabBarItem key="tabBarItem" image="home" selectedImage="home" id="LCh-0s-2Uf">
+                        <inset key="imageInsets" minX="0.0" minY="8" maxX="0.0" maxY="-8"/>
+                        <color key="badgeColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="0.0"/>
+                    </tabBarItem>
                     <connections>
                         <outlet property="blackView" destination="BHa-6U-joA" id="vDk-dF-314"/>
+                        <outlet property="mapView" destination="G8B-3k-SH6" id="8iX-Yd-9RT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1079.2" y="132.26600985221674"/>
         </scene>
-        <!--Item-->
+        <!--View Controller-->
         <scene sceneID="zff-f1-3Xp">
             <objects>
                 <viewController id="VNt-kv-JtS" sceneMemberID="viewController">
@@ -68,14 +73,16 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="EeQ-ih-to5"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="KSD-IC-sz6"/>
+                    <tabBarItem key="tabBarItem" title="" image="profile-1" selectedImage="profile-1" id="KSD-IC-sz6">
+                        <inset key="imageInsets" minX="0.0" minY="8" maxX="0.0" maxY="-8"/>
+                    </tabBarItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ndS-vd-m8k" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1077.5999999999999" y="1025.615763546798"/>
         </scene>
-        <!--Item-->
+        <!--View Controller-->
         <scene sceneID="WQH-9q-OKj">
             <objects>
                 <viewController id="ikl-Be-G8a" sceneMemberID="viewController">
@@ -96,7 +103,9 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="JVF-LA-HrF"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="9EU-cH-4d3"/>
+                    <tabBarItem key="tabBarItem" title="" image="wolrd" selectedImage="wolrd" id="9EU-cH-4d3">
+                        <inset key="imageInsets" minX="0.0" minY="8" maxX="0.0" maxY="-8"/>
+                    </tabBarItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VFL-K1-NNA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -369,7 +378,7 @@
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="P7t-as-Ho3">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.95686274509803915" green="0.17254901960784313" blue="0.32549019607843138" alpha="0.0" colorSpace="calibratedRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="IKG-GB-fOl"/>
@@ -384,10 +393,13 @@
     </scenes>
     <resources>
         <image name="dineDetails" width="122.33333587646484" height="466.66665649414062"/>
+        <image name="home" width="30" height="30"/>
         <image name="pay2" width="743" height="1400"/>
         <image name="profile" width="739" height="1400"/>
+        <image name="profile-1" width="30" height="30"/>
         <image name="rsvp2" width="738" height="1400"/>
         <image name="venmo2" width="741" height="1400"/>
+        <image name="wolrd" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="uy9-jF-1R4"/>

@@ -1,3 +1,25 @@
-PODFILE CHECKSUM: bca0baeb7852355e07140c287382085e5eda6d36
+PODS:
+  - Alamofire (4.9.1)
+  - AlamofireImage (3.6.0):
+    - Alamofire (~> 4.9)
+  - FlyoverKit (1.2.2)
+
+DEPENDENCIES:
+  - Alamofire
+  - AlamofireImage
+  - FlyoverKit (~> 1.2.0)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Alamofire
+    - AlamofireImage
+    - FlyoverKit
+
+SPEC CHECKSUMS:
+  Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
+  AlamofireImage: be9963c6582d68b39e89191f64c82a7d7bf40fdd
+  FlyoverKit: 5c34d155a9ac8fc85af795eeca243bc51ebee15f
+
+PODFILE CHECKSUM: 018fc2a77727ae6cec7a067ba07a39c95191fa4a
 
 COCOAPODS: 1.7.0
