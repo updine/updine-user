@@ -83,10 +83,12 @@ class BottomSheetViewController: UIViewController, UIGestureRecognizerDelegate {
                 }
             }
         }
-
+        
+    
+        //CHNAGE UBER STYLE SWIPE UP HEIGHT HERE
         func minimize(completion: (() -> Void)?) {
             UIView.animate(withDuration: 0.2, animations: {
-                self.moveToY(self.closeThreshold - 100)
+                self.moveToY(self.closeThreshold - 200)
             }) { _ in
                 if let completion = completion {
                     completion()
