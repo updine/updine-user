@@ -131,10 +131,10 @@
             </objects>
             <point key="canvasLocation" x="1812" y="132.26600985221674"/>
         </scene>
-        <!--View Controller-->
+        <!--Login View Controller-->
         <scene sceneID="dW8-4i-EQO">
             <objects>
-                <viewController id="goi-zp-Iw8" sceneMemberID="viewController">
+                <viewController id="goi-zp-Iw8" customClass="LoginViewController" customModule="updine_user" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="HJi-Og-HhR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -147,11 +147,12 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2sa-Uh-4Zv">
-                                <rect key="frame" x="152" y="463" width="46" height="30"/>
+                                <rect key="frame" x="152" y="463" width="46" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <connections>
-                                    <segue destination="cXK-ks-RJx" kind="custom" identifier="loginToTabViews" id="SJL-et-nwN"/>
+                                    <action selector="loginButtonTapped:" destination="goi-zp-Iw8" eventType="touchUpInside" id="3IN-vw-SQG"/>
+                                    <segue destination="cXK-ks-RJx" kind="presentation" identifier="loginToTabViews" modalPresentationStyle="fullScreen" id="tle-pe-dWt"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -161,7 +162,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fez-R5-2ge" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-758" y="132"/>
+            <point key="canvasLocation" x="-759.20000000000005" y="131.52709359605913"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="2zK-0K-P67">
