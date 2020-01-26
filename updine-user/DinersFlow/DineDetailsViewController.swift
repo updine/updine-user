@@ -14,6 +14,8 @@ class DineDetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+//        screenImageView.image = UIImage(named: "")
 
         // Do any additional setup after loading the view.
     }
