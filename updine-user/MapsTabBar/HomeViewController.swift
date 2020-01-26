@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class HomeViewController: UIViewController {
     @IBOutlet weak var blackView: UIView!
     
      var animator: UIViewPropertyAnimator?
