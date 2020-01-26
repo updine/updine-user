@@ -79,6 +79,7 @@
 		7C1A418923CB3817008B2865 /* updine-user */ = {
 			isa = PBXGroup;
 			children = (
+				7C9D30D423DDA84C00AD2018 /* OtherTabs */,
 				7C7220F823CEEB38000DDF1E /* DinersFlow */,
 				7CD155EA23DD8ABB002775A9 /* Kickoff_VC */,
 				7CD155E723DCB545002775A9 /* SwipeUpVC */,
@@ -111,6 +112,13 @@
 				7C9D30D223DDA52B00AD2018 /* RSVPViewController.swift */,
 			);
 			path = DinersFlow;
+			sourceTree = "<group>";
+		};
+		7C9D30D423DDA84C00AD2018 /* OtherTabs */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = OtherTabs;
 			sourceTree = "<group>";
 		};
 		7CD155E723DCB545002775A9 /* SwipeUpVC */ = {
