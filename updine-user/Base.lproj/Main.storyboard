@@ -45,7 +45,7 @@
                     </tabBarItem>
                     <connections>
                         <outlet property="blackView" destination="BHa-6U-joA" id="vDk-dF-314"/>
-                        <outlet property="mapView" destination="BHa-6U-joA" id="vG7-se-yR1"/>
+                        <outlet property="mapView" destination="G8B-3k-SH6" id="8iX-Yd-9RT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
