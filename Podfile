@@ -6,5 +6,14 @@ target 'updine-user' do
   use_frameworks!
 
   # Pods for updine-user
+	pod 'AlamofireImage'
+	pod 'Alamofire'
+	pod 'FlyoverKit', '~> 1.2.0'
+	pod 'GoogleSignIn'
+	pod 'Firebase/Auth'
+	pod 'Firebase/Analytics'
+	pod 'FirebaseCore'
+	pod 'FirebaseFirestore'
+	pod 'Firebase/Storage'
 
 end
