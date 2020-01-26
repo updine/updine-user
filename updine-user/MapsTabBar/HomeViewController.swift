@@ -7,11 +7,26 @@
 //
 
 import UIKit
+import MapKit
 
 class HomeViewController: UIViewController {
     @IBOutlet weak var blackView: UIView!
+    var animator: UIViewPropertyAnimator?
     
-     var animator: UIViewPropertyAnimator?
+    
+    @IBOutlet weak var mapView: UIView!
+    let locationManager = CLLocationManager()
+    let regionInMeters: Double = 300
+    var currentCoordinate: CLLocationCoordinate2D?
+    
+    
+    
+    
+    
+    
+    
+    
+    //MARK BOTTOM VIEW SEGUE START HERE
 
        func createBottomView() {
            guard let sub = storyboard!.instantiateViewController(withIdentifier: "BottomSheetViewController") as? BottomSheetViewController else { return }
@@ -40,6 +55,10 @@ class HomeViewController: UIViewController {
            subViewGotPanned(percentage)
        }
 
+    
+    //MARK BOTTOM VIEW SEGUE END HERE
+    
+    
        override func viewDidLoad() {
            super.viewDidLoad()
            createBottomView()
