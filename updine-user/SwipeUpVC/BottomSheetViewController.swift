@@ -16,6 +16,8 @@ class BottomSheetViewController: UIViewController, UIGestureRecognizerDelegate {
     @IBOutlet weak var screenImageView: UIImageView!
     
         var dataSource1: [String] = ["yas", "tas", "yas", "tas", "yas", "tas", "yas", "tas"]
+        var foodSpots: [FoodSpot] = [FoodSpot.f1, FoodSpot.f2, FoodSpot.f3]
+    
     
         let closeThresholdHeight: CGFloat = 100
         let openThreshold: CGFloat = UIScreen.main.bounds.height - 200
@@ -111,16 +113,23 @@ extension BottomSheetViewController: UICollectionViewDataSource, UICollectionVie
     }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return dataSource1.count
+        return foodSpots.count
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellOne", for: indexPath) as! OneCollectionViewCell
-        cell.setLabel(dataSource1[indexPath.row])
+        let foodSpotChosen = foodSpots[indexPath.row]
+        
+        let cell = collectionViewOne.dequeueReusableCell(withReuseIdentifier: "cellOne", for: indexPath) as! OneCollectionViewCell
+        
+        cell.setFoodSpot(diner: foodSpotChosen)
+        
+//        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellOne", for: indexPath) as! OneCollectionViewCell
+//        cell.setLabel(dataSource1[indexPath.row])
         return cell
         
     }
     
+    //for aesthetics
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print("whose mans")
     }
