@@ -117,6 +117,19 @@ class HomeViewController: UIViewController {
            self.mapView.delegate = self
        }
     
+    func flyKitSetup() {
+//        self.mapView.mapType = .hybridFlyover
+//        self.mapView.showsBuildings = true
+//        self.mapView.isZoomEnabled = true
+//        self.mapView.isScrollEnabled = true
+        
+        let camera = FlyoverCamera(mapView: self.mapView, configuration: FlyoverCamera.Configuration(duration: 10.0, altitude: 60000, pitch: 45.0, headingStep: 40.0))
+        camera.start(flyover: FlyoverAwesomePlace.newYork)
+        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(20), execute:{
+            camera.stop()
+        })
+    }
+    
     
     
     
@@ -160,6 +173,7 @@ class HomeViewController: UIViewController {
            createBottomView()
             checkLocationServices()
             mapView.delegate = self
+            flyKitSetup()
 
            let name = NSNotification.Name(rawValue: "BottomViewMoved")
            NotificationCenter.default.addObserver(forName: name, object: nil, queue: nil, using: receiveNotification(_:))

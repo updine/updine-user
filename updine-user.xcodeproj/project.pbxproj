@@ -167,7 +167,6 @@
 				7C1A418423CB3817008B2865 /* Frameworks */,
 				7C1A418523CB3817008B2865 /* Resources */,
 				09BD593AA16A25FFFAEC99BB /* [CP] Embed Pods Frameworks */,
-				2B967564F835D913B28BA271 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -240,23 +239,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-updine-user/Pods-updine-user-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		2B967564F835D913B28BA271 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-updine-user/Pods-updine-user-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-updine-user/Pods-updine-user-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-updine-user/Pods-updine-user-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		77F6352D01A1B59C2F883BEF /* [CP] Check Pods Manifest.lock */ = {

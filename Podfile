@@ -9,11 +9,5 @@ target 'updine-user' do
 	pod 'AlamofireImage'
 	pod 'Alamofire'
 	pod 'FlyoverKit', '~> 1.2.0'
-	pod 'GoogleSignIn'
-	pod 'Firebase/Auth'
-	pod 'Firebase/Analytics'
-	pod 'FirebaseCore'
-	pod 'FirebaseFirestore'
-	pod 'Firebase/Storage'
 
 end
