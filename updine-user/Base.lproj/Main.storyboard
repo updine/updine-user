@@ -144,9 +144,8 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2sa-Uh-4Zv">
-                                <rect key="frame" x="152" y="463" width="46" height="22"/>
+                                <rect key="frame" x="122" y="608" width="119" height="56"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
                                 <connections>
                                     <action selector="loginButtonTapped:" destination="goi-zp-Iw8" eventType="touchUpInside" id="3IN-vw-SQG"/>
                                     <segue destination="cXK-ks-RJx" kind="presentation" identifier="loginToTabViews" modalPresentationStyle="fullScreen" id="tle-pe-dWt"/>
@@ -156,6 +155,9 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="7Y4-90-p0y"/>
                     </view>
+                    <connections>
+                        <outlet property="imageView" destination="o6l-do-VNv" id="axS-Lf-kaV"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fez-R5-2ge" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
