@@ -11,10 +11,10 @@ import UIKit
 class DinerTableViewCell: UITableViewCell {
     
     //instance varibales here
-
-    func setDiner(diner: Diner) {
-        
-    }
+//
+//    func setDiner(diner: Diner) {
+//        
+//    }
  
 
 }

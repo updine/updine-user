@@ -79,6 +79,33 @@ class HomeViewController: UIViewController {
         pinTwo.title = markerTitle
         pinTwo.coordinate = CLLocationCoordinate2D(latitude: 40.7484, longitude: -73.9857)
         
+        let timesSqaureAnnotation = MKPointAnnotation()
+               timesSqaureAnnotation.title = markerTitle
+               timesSqaureAnnotation.coordinate = CLLocationCoordinate2D(latitude: 40.6602, longitude: -73.9985)
+               
+               let empireStateAnnotation = MKPointAnnotation()
+               empireStateAnnotation.title = markerTitle
+               empireStateAnnotation.coordinate = CLLocationCoordinate2D(latitude: 40.7484, longitude: -73.9857)
+               
+        //HOLY COW DINER
+               let brooklynBridge = MKPointAnnotation()
+               brooklynBridge.title = markerTitle
+               brooklynBridge.coordinate = CLLocationCoordinate2D(latitude: 40.714720, longitude: -73.991130)
+               
+               let prospectPark = MKPointAnnotation()
+               prospectPark.title = markerTitle
+               prospectPark.coordinate = CLLocationCoordinate2D(latitude: 40.6602, longitude: -73.9690)
+               
+               let jersey = MKPointAnnotation()
+               jersey.title = markerTitle
+               jersey.coordinate = CLLocationCoordinate2D(latitude: 40.7178, longitude: -74.0431)
+               
+               mapView.addAnnotation(timesSqaureAnnotation)
+               mapView.addAnnotation(empireStateAnnotation)
+               mapView.addAnnotation(brooklynBridge)
+               mapView.addAnnotation(prospectPark)
+               mapView.addAnnotation(jersey)
+        
         
         
         mapView.addAnnotation(pinOne)
@@ -90,8 +117,8 @@ class HomeViewController: UIViewController {
     
     //GPS ROUTE
     func showRoute() {
-           let sourceLocation = currentCoordinate ?? CLLocationCoordinate2D(latitude: 40.6742, longitude: -73.8418)
-           let destinationLocation = CLLocationCoordinate2D(latitude: 40.7484, longitude: -73.9857)
+           let sourceLocation = currentCoordinate ?? CLLocationCoordinate2D(latitude: 40.692040, longitude: -73.9857)
+           let destinationLocation = CLLocationCoordinate2D(latitude: 40.714720, longitude: -73.991130)
            
            let sourcePlaceMark = MKPlacemark(coordinate: sourceLocation)
            let destinationPlaceMark = MKPlacemark(coordinate: destinationLocation)
@@ -123,7 +150,12 @@ class HomeViewController: UIViewController {
     func flyKitSetup() {
 //        self.mapView.mapType = .hybridFlyover
         
-        let camera = FlyoverCamera(mapView: self.mapView, configuration: FlyoverCamera.Configuration(duration: 10.0, altitude: 10000, pitch: 45.0, headingStep: 40.0))
+//        self.mapView.mapType = .hybridFlyover
+        self.mapView.showsBuildings = true
+//        self.mapView.isZoomEnabled = true
+        self.mapView.isScrollEnabled = true
+        
+        let camera = FlyoverCamera(mapView: self.mapView, configuration: FlyoverCamera.Configuration(duration: 5.0, altitude: 20000, pitch: 45.0, headingStep: 40.0))
         camera.start(flyover: FlyoverAwesomePlace.newYork)
         DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(20), execute:{
             camera.stop()

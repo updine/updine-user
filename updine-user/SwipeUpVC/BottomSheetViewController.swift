@@ -16,6 +16,8 @@ class BottomSheetViewController: UIViewController, UIGestureRecognizerDelegate {
     @IBOutlet weak var screenImageView: UIImageView!
     
         var dataSource1: [String] = ["yas", "tas", "yas", "tas", "yas", "tas", "yas", "tas"]
+        var foodSpots: [FoodSpot] = [FoodSpot.f1, FoodSpot.f2, FoodSpot.f3]
+    
     
         let closeThresholdHeight: CGFloat = 100
         let openThreshold: CGFloat = UIScreen.main.bounds.height - 200
@@ -29,7 +31,7 @@ class BottomSheetViewController: UIViewController, UIGestureRecognizerDelegate {
             gotPanned(0)
             super.viewDidLoad()
             collectionViewOne.dataSource = self
-            screenImageView.image = UIImage(named: ("swipeUpHalf"))
+//            screenImageView.image = UIImage(named: ("swipeUpHalf"))
             
 
             let gestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(respondToPanGesture))
@@ -81,10 +83,12 @@ class BottomSheetViewController: UIViewController, UIGestureRecognizerDelegate {
                 }
             }
         }
-
+        
+    
+        //CHNAGE UBER STYLE SWIPE UP HEIGHT HERE
         func minimize(completion: (() -> Void)?) {
             UIView.animate(withDuration: 0.2, animations: {
-                self.moveToY(self.closeThreshold - 100)
+                self.moveToY(self.closeThreshold - 200)
             }) { _ in
                 if let completion = completion {
                     completion()
@@ -111,28 +115,35 @@ extension BottomSheetViewController: UICollectionViewDataSource, UICollectionVie
     }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return dataSource1.count
+        return foodSpots.count
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellOne", for: indexPath) as! OneCollectionViewCell
-        cell.setLabel(dataSource1[indexPath.row])
+        let foodSpotChosen = foodSpots[indexPath.row]
+        
+        let cell = collectionViewOne.dequeueReusableCell(withReuseIdentifier: "cellOne", for: indexPath) as! OneCollectionViewCell
+        
+        cell.setFoodSpot(diner: foodSpotChosen)
+        
+//        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellOne", for: indexPath) as! OneCollectionViewCell
+//        cell.setLabel(dataSource1[indexPath.row])
         return cell
         
     }
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("whose mans")
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
-        UIView.animate(withDuration: 0.5) {
-            if let cell = collectionView.cellForItem(at: indexPath) as? OneCollectionViewCell {
-                cell.imageView.transform = .init(scaleX: 0.95, y: 0.95)
-                cell.contentView.backgroundColor = UIColor(red: 0.95, green: 0.95, blue: 0.95, alpha: 1)
-            }
-        }
-    }
+    //for aesthetics
+//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+//        print("whose mans")
+//    }
+//    
+//    func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
+//        UIView.animate(withDuration: 0.5) {
+//            if let cell = collectionView.cellForItem(at: indexPath) as? OneCollectionViewCell {
+//                cell.imageView.transform = .init(scaleX: 0.95, y: 0.95)
+//                cell.contentView.backgroundColor = UIColor(red: 0.95, green: 0.95, blue: 0.95, alpha: 1)
+//            }
+//        }
+//    }
     
     
 }
