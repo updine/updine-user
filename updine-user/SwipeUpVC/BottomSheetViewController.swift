@@ -132,18 +132,18 @@ extension BottomSheetViewController: UICollectionViewDataSource, UICollectionVie
     }
     
     //for aesthetics
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("whose mans")
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
-        UIView.animate(withDuration: 0.5) {
-            if let cell = collectionView.cellForItem(at: indexPath) as? OneCollectionViewCell {
-                cell.imageView.transform = .init(scaleX: 0.95, y: 0.95)
-                cell.contentView.backgroundColor = UIColor(red: 0.95, green: 0.95, blue: 0.95, alpha: 1)
-            }
-        }
-    }
+//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+//        print("whose mans")
+//    }
+//    
+//    func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
+//        UIView.animate(withDuration: 0.5) {
+//            if let cell = collectionView.cellForItem(at: indexPath) as? OneCollectionViewCell {
+//                cell.imageView.transform = .init(scaleX: 0.95, y: 0.95)
+//                cell.contentView.backgroundColor = UIColor(red: 0.95, green: 0.95, blue: 0.95, alpha: 1)
+//            }
+//        }
+//    }
     
     
 }
